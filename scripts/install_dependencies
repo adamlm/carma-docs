@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e           # Exit if any command has non-zero exit code (return non-zero)
+set -u           # Referencing undefined variables is an error
+set -o pipefail  # Exit if any command in a pipeline fails (return last failed command's code)
+
+PROJECT_ROOT="$( cd "$(dirname "${0}")/../" &> /dev/null && pwd)"
+readonly PROJECT_ROOT
+
+python3 -m venv "${PROJECT_ROOT}/carma-docs-venv"
+
+# shellcheck source=/dev/null
+source "${PROJECT_ROOT}/carma-docs-venv/bin/activate"
+
+echo "carma-docs: installing python packages"
+python3 -m pip install --no-input --require-virtualenv -r "${PROJECT_ROOT}/requirements.txt"

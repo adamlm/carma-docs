@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e           # Exit if any command has non-zero exit code (return non-zero)
+set -u           # Referencing undefined variables is an error
+set -o pipefail  # Exit if any command in a pipeline fails (return last failed command's code)
+
+echo "carma-docs: running project"
+
+PROJECT_ROOT="$( cd "$(dirname "${0}")/../" &> /dev/null && pwd)"
+readonly PROJECT_ROOT
+
+# shellcheck source=/dev/null
+source "${PROJECT_ROOT}/carma-docs-venv/bin/activate"
+
+cd "${PROJECT_ROOT}"
+mkdocs serve
