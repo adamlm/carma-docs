@@ -1,0 +1,3 @@
+[submodule "multiple_object_tracking"]
+	path = multiple_object_tracking
+	url = https://github.com/usdot-fhwa-stol/multiple_object_tracking
