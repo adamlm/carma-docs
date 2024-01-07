@@ -1,0 +1,32 @@
+site_name: CARMA Docs
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - monorepo
+  - search
+
+theme:
+  features:
+    - navigation.indexes
+  name: material
+  palette:
+    - scheme: default
+      primary: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+
+nav:
+  - CARMA Platform: "index.md"
+  - CARMA Streets: "index.md"
+  - Libraries:
+    - Multiple object tracking: "!include ./multiple_object_tracking/mkdocs.yaml"
